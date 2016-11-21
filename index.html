@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>!</title>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./node_modules/backbone/node_modules/underscore/underscore-min.js"></script>
+    <script src="./node_modules/backbone/backbone-min.js"></script>
+    <script src="./App/appModel.js"></script>
+    <script src="./App/appView.js"></script>
+    <div id ="app"></div>
+
+    <script type="text/javascript">
+      $(function () {
+        var model = new AppModel();
+        var view = new AppView({
+          model: model,
+          el: '#app'
+        })
+      });
+    </script>
+
+    <script type='text/template' id='_root'>
+      <div>
+      <%= name %>
+      <%= age %>
+      <button class='js-press_M'> - </button>
+      <button class='js-press_P'> + </button>
+      </div>
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
