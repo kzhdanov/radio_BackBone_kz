@@ -1,15 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Add Some Thing</title>
     <meta charset="utf-8">
-    <title>!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+    <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="./node_modules/backbone/node_modules/underscore/underscore-min.js"></script>
     <script src="./node_modules/backbone/backbone-min.js"></script>
     <script src="./App/appModel.js"></script>
     <script src="./App/appView.js"></script>
-    <div id ="app"></div>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div id ="app" class="col-xs-12" style="padding:30px 20px;">
 
+        </div>
+      </div>
+    </div>
     <script type="text/javascript">
       $(function () {
         var model = new AppModel();
@@ -22,14 +34,15 @@
 
     <script type='text/template' id='_root'>
       <div>
-      <%= name %>
-      <%= age %>
-      <button class='js-press_M'> - </button>
-      <button class='js-press_P'> + </button>
+        <button id="Add" class="btn btn-default">New item</button>
+        <br /><br />
+      </div>
+      <div>
+        <%= name %>
+        <%= age %>
+        <button class='js-press_M'> - </button>
+        <button class='js-press_P'> + </button>
       </div>
     </script>
-  </head>
-  <body>
-
   </body>
 </html>
