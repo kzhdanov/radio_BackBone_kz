@@ -6,9 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   
     <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="./App/main.css">
+    <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap-slider/dist/css/bootstrap-slider.min.css">
 
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./node_modules/bootstrap-slider/dist/bootstrap-slider.min.js">
+    </script>
     <script src="./node_modules/backbone/node_modules/underscore/underscore-min.js"></script>
     <script src="./node_modules/backbone/backbone-min.js"></script>
     <script src="./App/appModel.js"></script>
@@ -33,15 +37,21 @@
     </script>
 
     <script type='text/template' id='_root'>
-      <div>
-        <button id="Add" class="btn btn-default">New item</button>
-        <br /><br />
-      </div>
-      <div>
-        <%= name %>
-        <%= age %>
-        <button class='js-press_M'> - </button>
-        <button class='js-press_P'> + </button>
+      <div class="meny">
+        <audio src="http://eu3.radioboss.fm:8022/live" id="RootAudio"></audio>
+        <% if ( !playing ){ %>
+          <a id="Play" class="btn btn-default" href="#" role="button">
+            <span class="glyphicon glyphicon-play common-icons"></span>
+          </a>
+        <% } else { %>
+         <a id="Stop" class="btn btn-default" href="#" role="button">
+            <span class="glyphicon glyphicon-pause common-icons"></span>
+          </a>
+        <% } %>
+        <span class="glyphicon glyphicon-volume-off common-bottom"></span>
+        <input id="ex8" data-slider-id='ex1Slider' type="text" data-slider-min="0" 
+               data-slider-max="100" data-slider-step="5" data-slider-value="<%= volume %>"/>
+        <span class="glyphicon glyphicon-volume-up common-bottom"></span>
       </div>
     </script>
   </body>

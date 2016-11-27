@@ -1,6 +1,6 @@
 var AppModel = Backbone.Model.extend({
 	defaults: {
-		name: 'age',
-		age: 18
+		playing: false,
+		volume: 40,
 	}
 })

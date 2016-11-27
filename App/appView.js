@@ -1,7 +1,9 @@
 var AppView = Backbone.View.extend({
   events: {
-    "click .js-press_M": "press_M",
-    "click .js-press_P": "press_P"
+    "click #Play" : "Play",
+    "click #Stop" : "Stop",
+    "change #ex8" : "VolumeChanging",
+    "click .glyphicon-volume-off" : "VolumeOff"
   },
 
   initialize: function() {
@@ -14,19 +16,40 @@ var AppView = Backbone.View.extend({
     var json = this.model.toJSON();
     var view = this.template(json);
     this.$el.html(view);
+
+    this.Slider = $('#ex8').slider();
   },
 
-  press_M: function(event) {
-  	var age = this.model.get('age');
+  Play: function(event) {
   	this.model.set({
-  		age: Number(age-1),
+  		playing: true,
+      volume: Number($('#ex8').val()),
   	});
+      
+    $('#RootAudio').trigger('play');
   },
 
-  press_P: function(event) {
-  	var age = this.model.get('age');
-  	this.model.set({
-  		age: Number(age+1),
-  	});
+  Stop: function(event) {
+    this.model.set({
+      playing: false,
+      volume: Number($('#ex8').val()),
+    });
+    $('#RootAudio').trigger('pause');
+  },
+
+  VolumeChanging: function (e) {
+    if(e.target.value != 0 && $('.glyphicon-volume-off').hasClass('unactive'))
+      $('.glyphicon-volume-off').removeClass('unactive');
+
+    if(e.target.value == 0)
+      $('.glyphicon-volume-off').addClass('unactive');
+
+    $('audio').prop("volume", Number($('#ex8').val() / 100));
+  },
+
+  VolumeOff: function () {
+    this.Slider.slider('setValue', 0);
+    $('audio').prop("volume", 0);
+    $('.glyphicon-volume-off').addClass('unactive');
   }
 })

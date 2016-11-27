@@ -1,0 +1,49 @@
+#Play {
+	font-size: 40px;
+	width: 80px;
+	height: 80px;
+	padding-top: 14px;
+    padding-left: 16px;
+}
+
+#Stop {
+	font-size: 40px;
+	width: 80px;
+	height: 80px;
+	padding-left: 17px;
+	padding-top: 14px;
+}
+#app { text-align: center; }
+.common-icons {
+	text-align: center;
+}
+.meny {
+   
+}
+.common-bottom {
+	vertical-align: bottom;
+	font-size: 40px;
+}
+.common-bottom {
+	cursor: pointer;
+}
+.glyphicon-volume-off {
+	margin-left: 60px;
+	margin-right: 10px;
+}
+.glyphicon-volume-up {
+	margin-left: 10px;
+}
+#ex1Slider {
+	vertical-align: bottom;
+	display: inline-block;
+    margin-bottom: 10px;
+    width: 180px;
+}
+.slider-handle {
+	background-color: #333333 !important;
+	background-image: none !important; 
+}
+.unactive {
+	color: #e6e6e6;
+}
