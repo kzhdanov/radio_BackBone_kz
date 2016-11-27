@@ -13,7 +13,7 @@
 	padding-left: 17px;
 	padding-top: 14px;
 }
-#app { text-align: center; }
+#controls, #image { text-align: center; }
 .common-icons {
 	text-align: center;
 }
@@ -24,8 +24,9 @@
 	vertical-align: bottom;
 	font-size: 40px;
 }
-.common-bottom {
+.common-bottom:hover {
 	cursor: pointer;
+	color: #000;
 }
 .glyphicon-volume-off {
 	margin-left: 60px;
@@ -44,6 +45,38 @@
 	background-color: #333333 !important;
 	background-image: none !important; 
 }
+.slider-handle:hover {
+	cursor: pointer;
+	background-color: #000 !important;
+}
 .unactive {
 	color: #e6e6e6;
+}
+.songInfo {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #444;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    position: absolute;
+    top: 430px;
+    left: 50%;
+    margin-left: -250px;
+    width: 500px;
+    background-color: currentColor;
+    padding: 20px;
+    opacity: .9;
+    height: 100px;
+}
+.newWindow_link {
+    position: absolute;
+    top: 30px;
+    margin-left: -250px;
+    background-color: #444;
+    color: whitesmoke;
+    padding: 5px 10px 5px 10px;
+    height: 30px;
+    left: 50%;
+    width: 500px;
 }
