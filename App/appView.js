@@ -3,7 +3,8 @@ var AppView = Backbone.View.extend({
     "click #Play" : "Play",
     "click #Stop" : "Stop",
     "change #ex8" : "VolumeChanging",
-    "click .glyphicon-volume-off" : "VolumeOff"
+    "click .glyphicon-volume-off" : "VolumeOff",
+    "click .glyphicon-volume-up": "VolumUp", 
   },
 
   initialize: function() {
@@ -51,5 +52,11 @@ var AppView = Backbone.View.extend({
     this.Slider.slider('setValue', 0);
     $('audio').prop("volume", 0);
     $('.glyphicon-volume-off').addClass('unactive');
+  },
+
+  VolumUp: function () {
+    this.Slider.slider('setValue', 100);
+    $('audio').prop("volume", 1);
+    $('.glyphicon-volume-off').removeClass('unactive');
   }
 })
