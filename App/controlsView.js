@@ -1,4 +1,4 @@
-var AppView = Backbone.View.extend({
+var ControlsView = Backbone.View.extend({
   events: {
     "click #Play" : "Play",
     "click #Stop" : "Stop",

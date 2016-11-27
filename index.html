@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Add Some Thing</title>
+    <title>Radio</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   
@@ -15,23 +15,37 @@
     </script>
     <script src="./node_modules/backbone/node_modules/underscore/underscore-min.js"></script>
     <script src="./node_modules/backbone/backbone-min.js"></script>
-    <script src="./App/appModel.js"></script>
-    <script src="./App/appView.js"></script>
+    <script src="./App/controlsModel.js"></script>
+    <script src="./App/controlsView.js"></script>
   </head>
   <body>
     <div class="container-fluid">
       <div class="row">
-        <div id ="app" class="col-xs-12" style="padding:30px 20px;">
+        <div id ="image" class="col-xs-12" style="padding:30px 20px;">
+          <img src="./App/Images/Billy Talent-Dead Silence.jpg" width="500" height="500" style="position: relative;">
+              <div class="newWindow_link">
+                Radio in new window
+              </div>
+              <div class="songInfo">
+                <div class="js-group songInfo__group" style="color:white">S.P.O.R.T.</div>
+                <div class="js-song songInfo__song">Бонд</div>
+                <div class="js-album songInfo__album" style="color:white">The Best</div>
+              </div>
+          </img>
+        </div>
+      </div>
+      <div class="row">
+        <div id ="controls" class="col-xs-12" style="padding:30px 20px;">
 
         </div>
       </div>
     </div>
     <script type="text/javascript">
       $(function () {
-        var model = new AppModel();
-        var view = new AppView({
+        var model = new ControlsModel();
+        var view = new ControlsView({
           model: model,
-          el: '#app'
+          el: '#controls'
         })
       });
     </script>
