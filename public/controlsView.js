@@ -19,6 +19,10 @@ var ControlsView = Backbone.View.extend({
     this.$el.html(view);
 
     this.Slider = $('#ex8').slider();
+    this.SetCurrentVolume();
+    
+    if(this.model.get('volume') == 0)
+      $('.glyphicon-volume-off').addClass('unactive');
   },
 
   Play: function(event) {
@@ -26,7 +30,7 @@ var ControlsView = Backbone.View.extend({
   		playing: true,
       volume: Number($('#ex8').val()),
   	});
-      
+
     $('#RootAudio').trigger('play');
   },
 
@@ -58,5 +62,10 @@ var ControlsView = Backbone.View.extend({
     this.Slider.slider('setValue', 100);
     $('audio').prop("volume", 1);
     $('.glyphicon-volume-off').removeClass('unactive');
+  },
+
+  SetCurrentVolume: function () {
+    $('audio').prop("volume", Number(this.model.get('volume') / 100));
+    return false;
   }
 })
