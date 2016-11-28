@@ -272,3 +272,41 @@ app.get('/window/new', function (req, res) {
 app.listen(10001, function () {
   console.log('Server successfully started on 10001 port');
 });
+
+//WEB SOCKET
+var WebSocketServer = require('ws').Server,
+    wss = new WebSocketServer({port: 10002});
+let resultCash, intervalId = null;
+
+function Interval() {
+    intervalId = 
+    setInterval(() => {
+      let promise = new Promise((resolve, reject) => {
+        utils.WsInterval(internetradio, radioLink, resolve);
+      });
+
+      promise.then(
+        result => { 
+          if(result) {
+            resultCash = result;
+            
+            wss.clients.forEach(function each(client) {
+              client.send(JSON.stringify(resultCash));
+            });
+          }
+          console.log(result);
+        },
+        error => console.log("Rejected: " + error.message)
+      );
+    }, 5000);
+}
+
+    wss.on('connection', function (ws) {
+      if(!intervalId)
+        Interval();
+      else {
+        wss.clients.forEach(function each(client) {
+          client.send(JSON.stringify(resultCash));
+        });
+      }
+    });

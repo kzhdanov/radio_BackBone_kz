@@ -35,7 +35,7 @@ Utils.TitleParcing = function () {
   }
 };
 
-Utils.Guid = function () {
+Utils.Guid = () => {
   function s4() {
     return Math.floor((1 + Math.random()) * 0x10000)
       .toString(16)
@@ -45,4 +45,25 @@ Utils.Guid = function () {
   return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
 };
 
+Utils.WsInterval = (internetradio, radioLink, resolve) => {
+  internetradio.getStationInfo(radioLink, (error, station) => {
+    if (!error) {
+      let result = Utils.TitleParcing.call(station);
+
+      if( defaultCash.autor != result.autor || defaultCash.songName != result.songName || defaultCash.album != result.album) {
+
+        defaultCash.autor = result.autor;
+        defaultCash.songName = result.songName;
+        defaultCash.album = result.album;
+
+        resolve(defaultCash);
+      }
+      else {
+        resolve(null);
+      }
+    } else {
+      console.log({ type: 'error', msg: error });
+    }
+  });
+} 
 module.exports = Utils;
