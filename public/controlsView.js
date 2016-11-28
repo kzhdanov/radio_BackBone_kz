@@ -14,7 +14,7 @@ var ControlsView = Backbone.View.extend({
 
     var ws = new WebSocket ('ws://localhost:10002/');
     ws.onmessage = function (message) {
-      var res = JSON.parse(message.data)
+      var res = JSON.parse(message.data);
       
       $('.js-group').text(res.autor);
       $('.js-song').text(res.songName);
