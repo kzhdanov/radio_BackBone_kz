@@ -11,6 +11,15 @@ var ControlsView = Backbone.View.extend({
   	this.template = _.template($("#_root").html());
     this.listenTo(this.model, "change", this.render);
     this.render();
+
+    var ws = new WebSocket ('ws://localhost:10002/');
+    ws.onmessage = function (message) {
+      var res = JSON.parse(message.data)
+      
+      $('.js-group').text(res.autor);
+      $('.js-song').text(res.songName);
+      $('.js-album').text(res.album);
+    };
   },
 
   render: function() {
