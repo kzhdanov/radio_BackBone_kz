@@ -20,7 +20,14 @@
 		width: 100% !important;
 		height: auto !important;
 	}
+	.glyphicon-volume-off { margin-left: 0 !important; }
+	.volumeControl 
+	{
+	    display: block !important;
+    	padding-top: 30px !important;
+    }
 }
+
 body {
 	font-family: 'Helveticaneuecyr Light';
 }
@@ -77,10 +84,13 @@ body {
 }
 .slider-handle:hover {
 	cursor: pointer;
-	background-color: #000 !important;
+	background-color: #000;
 }
 .unactive {
 	color: #e6e6e6;
+}
+.unactive:hover {
+	color: #e6e6e6 !important;
 }
 .songInfo {
     font-weight: bold;
@@ -138,4 +148,8 @@ body {
     white-space: nowrap;
     overflow: hidden;
 	font-weight: normal;
+}
+.volumeControl {
+	display: inline-block;
+	vertical-align: bottom;
 }
