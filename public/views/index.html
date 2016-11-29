@@ -16,23 +16,17 @@
     </script>
     <script src="./libs/underscore-min.js"></script>
     <script src="./libs/backbone-min.js"></script>
+
     <script src="./controlsModel.js"></script>
     <script src="./controlsView.js"></script>
+    <script src="./ImageModel.js"></script>
+    <script src="./ImageView.js"></script>
   </head>
   <body>
     <div class="container-fluid">
       <div class="row">
         <div id ="image" class="col-xs-12">
-          <img src="./Images/Billy Talent-Dead Silence.jpg" style="position: relative;">
-              <div class="newWindow_link">
-                Radio in new window
-              </div>
-              <div class="songInfo">
-                <div class="js-group songInfo__group">S.P.O.R.T.</div>
-                <div class="js-song songInfo__song">Бонд</div>
-                <div class="js-album songInfo__album">The Best</div>
-              </div>
-          </img>
+          
         </div>
       </div>
       <div class="row">
@@ -48,9 +42,15 @@
           model: model,
           el: '#controls'
         });
+
+        var imageModel = new ImageModel();
+        var imageView = new ImageView({
+          model: imageModel,
+          el: '#image'
+        });
       });
     </script>
-
+    <!-- КОНТРОЛЫ -->
     <script type='text/template' id='_root'>
       <div class="meny">
         <audio src="http://eu3.radioboss.fm:8022/live" id="RootAudio"></audio>
@@ -63,11 +63,26 @@
             <span class="glyphicon glyphicon-pause common-icons"></span>
           </a>
         <% } %>
-        <span class="glyphicon glyphicon-volume-off common-bottom"></span>
-        <input id="ex8" data-slider-id='ex1Slider' type="text" data-slider-min="0" 
+        <div class="volumeControl">
+          <span class="glyphicon glyphicon-volume-off common-bottom"></span>
+          <input id="ex8" data-slider-id='ex1Slider' type="text" data-slider-min="0" 
                data-slider-max="100" data-slider-step="5" data-slider-value="<%= volume %>"/>
-        <span class="glyphicon glyphicon-volume-up common-bottom"></span>
+          <span class="glyphicon glyphicon-volume-up common-bottom"></span>
+        </div>
       </div>
+    </script>
+    <!-- ИЗОБРАЖЕНИЕ И НАЗВАНИЯ -->
+    <script type="text/template" id='_image'>
+      <img src="<%= imgSrc %>" style="position: relative;">
+              <div class="newWindow_link">
+                Radio in new window
+              </div>
+              <div class="songInfo">
+                <div class="js-group songInfo__group"><%= autor %></div>
+                <div class="js-song songInfo__song"><%= songName %></div>
+                <div class="js-album songInfo__album"><%= album %></div>
+              </div>
+          </img>
     </script>
   </body>
 </html>
