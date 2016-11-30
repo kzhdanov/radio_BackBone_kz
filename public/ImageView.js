@@ -1,4 +1,8 @@
 var ImageView = Backbone.View.extend({
+	events: {
+	    "click .newWindow_link" : "newWindow"
+    },
+
 	initialize: function() {
 	  	this.template = _.template($("#_image").html());
 
@@ -18,4 +22,9 @@ var ImageView = Backbone.View.extend({
 	    var view = this.template(json);
 	    this.$el.html(view);
   	},
+
+  	newWindow: function () {
+  		window.open('/window/new',"RadioAvance.ru",
+					"width=480,height=260,scrollbars=no,status=yes");
+  	}
 })
